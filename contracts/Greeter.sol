@@ -23,4 +23,8 @@ contract Greeter {
     function add(uint256 a, uint256 b) public pure returns (uint256) {
         return a + b;
     }
+
+    function multiply(uint256 x, uint256 y) public pure returns (uint256) {
+        return x * y;
+    } 
 }
