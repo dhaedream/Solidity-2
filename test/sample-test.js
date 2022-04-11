@@ -4,6 +4,13 @@ const { ethers } = require("hardhat");
 require("@nomiclabs/hardhat-waffle");
 
 describe("Greeter", function () {
+  beforeEach(async function () {
+    //basicallyyy, deploy the contract befire each test
+    const Greeter = await ethers.getContractFactory("Greeter");
+    const greeter = await Greeter.deploy("Hello, world!");
+    await greeter.deployed();
+  });
+
   it("Should return the new greeting once it's changed", async function () {
     const Greeter = await ethers.getContractFactory("Greeter");
     const greeter = await Greeter.deploy("Hello, world!");
