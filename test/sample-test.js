@@ -28,4 +28,13 @@ describe("Greeter", function () {
     const addNumbersTest = await contract.add(3, 6);
     expect(addNumbersTest).to.equal(9);
   });
+
+  it("Should multiply numbers + return results", async function () {
+    const Greeter = await ethers.getContractFactory("Greeter");
+    const greeter = await Greeter.deploy("Hello, World!");
+    const contract = await greeter.deployed();
+
+    const multiNumTest = await contract.multiply(3, 9);
+    expect(multiNumTest).to.equal(27);
+  });
 });
