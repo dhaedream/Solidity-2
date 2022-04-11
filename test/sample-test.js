@@ -18,4 +18,14 @@ describe("Greeter", function () {
 
     expect(await greeter.greet()).to.equal("Hola, mundo!");
   });
+
+  it("Should add my numbers + return sum", async function () {
+    //this is how hardhat targets coontract
+    const Greeter = await ethers.getContractFactory("Greeter");
+    const greeter = await Greeter.deploy("Hello, world!");
+    const contract = await greeter.deployed();
+
+    const addNumbersTest = await contract.add(3, 6);
+    expect(addNumbersTest).to.equal(9);
+  });
 });
