@@ -34,6 +34,7 @@ describe("Greeter", function () {
     const greeter = await Greeter.deploy("Hello, World!");
     const contract = await greeter.deployed();
 
+    // test git
     const multiNumTest = await contract.multiply(3, 9);
     expect(multiNumTest).to.equal(27);
   });
